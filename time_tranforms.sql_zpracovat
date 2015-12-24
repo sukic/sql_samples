@@ -1,0 +1,31 @@
+can_projects=> select to_char((time_way*3600 || ' second')::interval, 'HH24:MI:SS') from times_table_tsp1 limit 5;
+ to_char  
+----------
+ 02:52:07
+ 03:24:52
+ 01:16:02
+ 03:08:49
+ 02:04:02
+(5 řádek)
+
+can_projects=> select to_char((time_way || 'hour')::interval, 'HH24:MI:SS') from times_table_tsp1 limit 5;
+ to_char  
+----------
+ 02:52:07
+ 03:24:52
+ 01:16:02
+ 03:08:49
+ 02:04:02
+(5 řádek)
+
+# select '2010-01-01 12:00:00'::timestamp;
+      timestamp      
+---------------------
+ 2010-01-01 12:00:00
+
+Now we'll cast it to a date:
+
+wconrad=# select '2010-01-01 12:00:00'::timestamp::date;
+    date    
+------------
+ 2010-01-01
