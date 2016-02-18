@@ -29,3 +29,16 @@ wconrad=# select '2010-01-01 12:00:00'::timestamp::date;
     date    
 ------------
  2010-01-01
+ 
+ # convert a day in week described by week number to datum
+ CREATE TABLE weeks (week_id integer);
+ INSERT INTO weeks values (1);
+ INSERT INTO weeks values (25);
+ INSERT INTO weeks values (40);
+ select week_id,(date '2015-01-01' + 7*week_id)::date from weeks;
+ 
+  week_id |    date    
+---------+------------
+       1 | 2015-01-08
+      25 | 2015-06-25
+      40 | 2015-10-08
